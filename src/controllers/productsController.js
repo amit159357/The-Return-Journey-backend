@@ -12,16 +12,15 @@ const GetProductsController = async (req, res) => {
 
     // Calculate the total count of documents
     const totalCount = await ProductModel.countDocuments();
-
     // Get the paginated data
     const products = await ProductModel.find()
       .skip((pageNumber - 1) * pageSize)
       .limit(pageSize);
-
+    console.log("TotAl count", Math.ceil(totalCount / limit));
     res.status(200).json({
       data: products,
-      totalCount,
-      message: "Data Fetched successfully"
+      totalCount: Math.ceil(totalCount / limit),
+      message: "Data Fetched successfully",
     });
   } catch (error) {
     res.status(500).send({ error: error.message });
