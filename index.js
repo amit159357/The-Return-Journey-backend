@@ -2,7 +2,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import ProductRouter from "./src/route/products.js";
-import connectDB from "./src/configs/dbCOnnect.js";
+import connectDB from "./src/configs/dbConnect.js";
 import cors from "cors"
 // Create an Express application
 const app = express();
